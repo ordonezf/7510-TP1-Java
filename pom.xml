@@ -30,6 +30,13 @@
 			<version>1.9.5</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/me.soliveirajr/menta-regex -->
+		<dependency>
+			<groupId>me.soliveirajr</groupId>
+			<artifactId>menta-regex</artifactId>
+			<version>0.9.5</version>
+		</dependency>
 	</dependencies>
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
