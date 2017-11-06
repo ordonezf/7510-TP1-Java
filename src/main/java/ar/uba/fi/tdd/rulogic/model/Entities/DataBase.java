@@ -5,7 +5,6 @@ import ar.uba.fi.tdd.rulogic.model.Parser.FactParser;
 import ar.uba.fi.tdd.rulogic.model.Parser.RuleParser;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class DataBase {
 
@@ -30,7 +29,7 @@ public class DataBase {
         return this.checkForFacts(q) || this.checkForRules(q);
     }
 
-    private boolean checkForFacts(Question q) {
+    private boolean checkForFacts(Fact q) {
         for (Fact fact : this.facts) {
             if (fact.isEqual(q)) {
                 return true;
@@ -44,7 +43,7 @@ public class DataBase {
             if (rule.isEqual(q)) {
                 Map<String, String> merge = this.mergeArgs(rule, q);
                 List<Fact> ruleFacts = rule.transformFacts(merge);
-                if (ruleFacts.stream().anyMatch(f -> this.checkForFacts((Question) f))) {
+                if (ruleFacts.stream().allMatch(this::checkForFacts)) {
                     return true;
                 }
             }
