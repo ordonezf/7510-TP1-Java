@@ -27,6 +27,13 @@ public class DataBaseTest {
         Assert.assertNotNull(db);
     }
 
+    @Test(expected = InvalidDatabaseException.class)
+    public void createInvalidDataBaseRisesExceptiontest() throws InvalidDatabaseException {
+        List<String> invalidRawDB = this.rawDB;
+        invalidRawDB.add("varon(Juan).");
+        DataBase db = new DataBase(invalidRawDB);
+    }
+
     @Test
     public void DataBaseQuestionisTruetest() throws InvalidDatabaseException {
         DataBase db = new DataBase(this.rawDB);
