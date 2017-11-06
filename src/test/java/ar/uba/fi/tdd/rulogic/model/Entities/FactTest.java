@@ -12,6 +12,7 @@ public class FactTest {
     private String name;
     private String otherName;
     private List<String> args;
+    private List<String> outOFOrderargs;
     @Before
     public void setUp() throws Exception {
         this.name = "method";
@@ -20,6 +21,11 @@ public class FactTest {
             add("arg1");
             add("arg2");
             add("arg3");
+        }};
+        this.outOFOrderargs = new ArrayList<String>() {{
+            add("arg2");
+            add("arg3");
+            add("arg1");
         }};
     }
 
@@ -53,6 +59,13 @@ public class FactTest {
     public void FactIsEqualReturnsFalseWhenNotEqualstest() {
         Fact f = new Fact(this.name, this.args);
         Fact q = new Fact(this.otherName, this.args);
+        Assert.assertFalse(f.isEqual(q));
+    }
+
+    @Test
+    public void FactIsEqualReturnsFalseWhenArgsNotInSameOrdertest() {
+        Fact f = new Fact(this.name, this.args);
+        Fact q = new Fact(this.name, this.outOFOrderargs);
         Assert.assertFalse(f.isEqual(q));
     }
 }
