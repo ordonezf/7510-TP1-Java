@@ -21,7 +21,6 @@ public class Fact {
     }
 
     public boolean isEqual(Fact q) {
-        return (this.name.equals(q.getName()) && this.args.containsAll(q.getArgs())
-                && q.getArgs().containsAll(this.args));
+        return (this.name.equals(q.getName()) && this.args.equals(q.getArgs()));
     }
 }
