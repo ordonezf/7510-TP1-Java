@@ -14,14 +14,13 @@ public class FactParser {
     String regex_parse = "/^([a-z]+)\\(((?:[a-z]+, )*[a-z]+)\\)\\.$/g";
 
     public boolean isValid(String s) {
-        Pattern r = Pattern.compile(regex_valid);
+        Pattern r = Pattern.compile(this.regex_valid);
         Matcher m = r.matcher(s);
         return m.find();
     }
     public Fact parse(String s) {
-        String[] matches = match(s, regex_parse);
+        String[] matches = match(s, this.regex_parse);
         List<String> args = Arrays.asList(matches[1].split(", "));
         return new Fact(matches[0], args);
-
     }
 }
