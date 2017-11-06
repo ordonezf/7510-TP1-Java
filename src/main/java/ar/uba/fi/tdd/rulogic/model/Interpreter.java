@@ -1,7 +1,6 @@
 package ar.uba.fi.tdd.rulogic.model;
 
 import ar.uba.fi.tdd.rulogic.model.Entities.DataBase;
-import ar.uba.fi.tdd.rulogic.model.Entities.Question;
 import ar.uba.fi.tdd.rulogic.model.Exceptions.InvalidDatabaseException;
 import ar.uba.fi.tdd.rulogic.model.Exceptions.InvalidQuestionException;
 import ar.uba.fi.tdd.rulogic.model.Parser.QuestionParser;

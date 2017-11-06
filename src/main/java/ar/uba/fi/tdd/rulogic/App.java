@@ -21,7 +21,7 @@ public class App
         Interpreter i;
         try {
             String path = br.readLine();
-             i = new Interpreter(path);
+            i = new Interpreter(path);
         } catch (IOException e) {
                 System.out.println("The path is wrong");
                 System.out.println(e.getMessage());
